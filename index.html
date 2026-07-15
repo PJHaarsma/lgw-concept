@@ -104,11 +104,11 @@
       radial-gradient(120% 90% at 50% 45%, transparent 45%, rgba(6,5,9,.6) 100%);
   }
 
-  .panel .content{ position:relative; z-index:2; width:100%; max-width:24ch; text-align:center; }
-  .panel.wide .content{ max-width:34ch; }
+  .panel .content{ position:relative; z-index:2; width:100%; max-width:min(90vw,600px); text-align:center; }
+  .panel.wide .content{ max-width:min(92vw,680px); }
 
   /* ---------- TYPE ---------- */
-  .line{ font-family:var(--editorial); font-weight:300; font-size:clamp(21px,4.6vw,34px); line-height:1.42; color:var(--bone); text-wrap:balance; }
+  .line{ font-family:var(--editorial); font-weight:300; font-size:clamp(21px,4.6vw,34px); line-height:1.42; color:var(--bone); text-wrap:balance; max-width:24ch; margin-left:auto; margin-right:auto; }
   .line + .line{ margin-top:1em; }
   .line b{ font-weight:500; font-style:normal; }
   .em-blue{ color:var(--glow); }

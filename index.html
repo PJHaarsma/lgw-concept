@@ -94,7 +94,7 @@
   }
   .ph .cap .k{ font-family:var(--ui); font-size:9.5px; font-weight:600; letter-spacing:.28em; text-transform:uppercase; color:var(--glow); }
   .ph .cap .t{ font-family:var(--editorial); font-style:italic; font-size:clamp(14px,2.4vw,18px); color:var(--bone-dim); }
-  .kenburns .ph{ animation:kb 20s ease-out forwards; }
+  .kenburns .ph.kb-run{ animation:kb 20s ease-out forwards; }
   @keyframes kb{ from{transform:scale(1)} to{transform:scale(1.12)} }
   /* legibility grade over art */
   .panel .art::after{
@@ -449,15 +449,18 @@
     rises.forEach(function(el){ io.observe(el); });
   }
 
-  // Restart the Ken Burns zoom each time a panel re-enters, so it always feels alive
+  // Start each Ken Burns zoom ONCE, the first time its panel enters view — no reset,
+  // so images never snap back to a smaller scale as you scroll.
   if(!reduce && 'IntersectionObserver' in window){
     var kb = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
-        var ph = e.target.querySelector('.ph');
-        if(!ph) return;
-        if(e.isIntersecting){ ph.style.animation='none'; void ph.offsetWidth; ph.style.animation=''; }
+        if(e.isIntersecting){
+          var ph = e.target.querySelector('.ph');
+          if(ph) ph.classList.add('kb-run');
+          kb.unobserve(e.target);
+        }
       });
-    }, { threshold:0.2 });
+    }, { threshold:0.15 });
     document.querySelectorAll('.kenburns').forEach(function(p){ kb.observe(p); });
   }
 

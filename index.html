@@ -97,12 +97,19 @@
   .kenburns .ph.kb-run{ animation:kb 20s ease-out forwards; }
   @keyframes kb{ from{transform:scale(1)} to{transform:scale(1.12)} }
   /* legibility grade over art */
+  /* image panels carry no text now -> light grade; bottom fades into the black card below */
   .panel .art::after{
     content:''; position:absolute; inset:0; z-index:1;
     background:
-      linear-gradient(180deg, rgba(6,5,9,.55) 0%, rgba(6,5,9,.15) 32%, rgba(6,5,9,.35) 62%, rgba(6,5,9,.85) 100%),
-      radial-gradient(120% 90% at 50% 45%, transparent 45%, rgba(6,5,9,.6) 100%);
+      linear-gradient(180deg, rgba(6,5,9,.22) 0%, transparent 20%, transparent 74%, rgba(6,5,9,.96) 100%),
+      radial-gradient(125% 95% at 50% 42%, transparent 60%, rgba(6,5,9,.38) 100%);
   }
+  .panel.card{ background:var(--void); }
+  .panel.img{ background:var(--void); }
+  /* On Social */
+  .social{ display:grid; grid-template-columns:1fr; gap:14px; max-width:680px; margin:0 auto; text-align:left; }
+  @media(min-width:720px){ .social{ grid-template-columns:1fr 1fr; } }
+  .socialquote{ font-family:var(--editorial); font-style:italic; font-size:clamp(17px,2.6vw,21px); line-height:1.4; color:var(--bone); padding:16px 20px; border:1px solid var(--rule-soft); border-left:2px solid var(--glow); background:linear-gradient(160deg,var(--void-2),transparent); }
 
   .panel .content{ position:relative; z-index:2; width:100%; max-width:min(90vw,600px); text-align:center; }
   .panel.wide .content{ max-width:min(92vw,680px); }
@@ -220,213 +227,207 @@
 </head>
 <body>
 
-<!-- ============================ ACT I — THE STORY ============================ -->
-
-<!-- A1 -->
-<section class="panel kenburns" data-first>
+<!-- ==================== ACT I - THE STORY (image -> black text) ==================== -->
+<section class="panel img kenburns">
   <div class="art"><div class="ph" data-img="assets/img/01-act1-wonderland-panorama.webp" data-img-wide="assets/img/01-act1-wonderland-panorama-wide.webp"><div class="cap"><span class="k">Art · Panorama</span><span class="t">Wondertropolis · Chessboard Desert · House of Cards</span></div></div></div>
+  <div class="cue" aria-hidden="true"><span class="l"></span>Scroll</div>
+</section>
+<section class="panel card">
   <div class="content">
     <p class="ask rise">WHAT IF WONDERLAND WAS REAL ALL ALONG?</p>
   </div>
-  <div class="cue" aria-hidden="true"><span class="l"></span>Scroll</div>
 </section>
-
-<!-- A2 -->
-<section class="panel kenburns wide">
-  <div class="art"><div class="ph" data-img="assets/img/02-act1-aiw-cover.webp"><div class="cap"><span class="k">Art · Cover</span><span class="t">Alice's Adventures in Wonderland — original 1865 cover</span></div></div></div>
-  <div class="content">
+<section class="panel img kenburns">
+  <div class="art"><div class="ph" data-img="assets/img/02-act1-aiw-cover.webp"><div class="cap"><span class="k">Art · Cover</span><span class="t">Alice&#39;s Adventures in Wonderland &mdash; original 1865 cover</span></div></div></div>
+</section>
+<section class="panel card">
+  <div class="content wide">
     <p class="line rise">For more than 160 years, the world has believed Wonderland was a story.</p>
     <p class="line rise d1">A story imagined by Lewis Carroll&hellip; and shared with a young girl named Alice Liddell.</p>
-    <p class="ask rise d2" style="margin-top:1.1em">WHAT IF IT WAS <span class="em-blue">HISTORY?</span></p>
+    <p class="ask rise d2" style="margin-top:.7em">WHAT IF IT WAS <span class="em-blue">HISTORY?</span></p>
   </div>
 </section>
-
-<!-- A3 -->
-<section class="panel kenburns">
-  <div class="art"><div class="ph" data-img="assets/img/03-act1-alyss-princess.webp"><div class="cap"><span class="k">Art · Kovacs / Appelhans</span><span class="t">Princess Alyss (purple) · Alyss's Birthday</span></div></div></div>
+<section class="panel img kenburns">
+  <div class="art"><div class="ph" data-img="assets/img/03-act1-alyss-princess.webp"><div class="cap"><span class="k">Art · Kovacs / Appelhans</span><span class="t">Princess Alyss · Alyss&#39;s Birthday</span></div></div></div>
+</section>
+<section class="panel card">
   <div class="content">
     <p class="line rise">It began with a seven-year-old princess&hellip;</p>
     <p class="line rise d1">named <b>Alyss Heart.</b></p>
   </div>
 </section>
-
-<!-- A4 -->
-<section class="panel kenburns">
-  <div class="art"><div class="ph" data-img="assets/img/04-act1-card-soldier-attack.webp" data-img-wide="assets/img/04-act1-card-soldier-attack-wide.webp"><div class="cap"><span class="k">Art · Sami Makkonen</span><span class="t">Card Soldier Attack · Card Soldier Close-Up</span></div></div></div>
+<section class="panel img kenburns">
+  <div class="art"><div class="ph" data-img="assets/img/04-act1-card-soldier-attack.webp" data-img-wide="assets/img/04-act1-card-soldier-attack-wide.webp"><div class="cap"><span class="k">Art · Sami Makkonen</span><span class="t">Card Soldier Attack</span></div></div></div>
+</section>
+<section class="panel card">
   <div class="content">
     <p class="line rise">On her seventh birthday&hellip; Wonderland fell.</p>
     <p class="line rise d1">Her aunt <span class="em-red">Redd</span> seized the throne.</p>
   </div>
 </section>
-
-<!-- A5 -->
-<section class="panel kenburns wide">
+<section class="panel img kenburns">
   <div class="art"><div class="ph" data-img="assets/img/05-act1-pool-of-tears.webp" data-img-wide="assets/img/05-act1-pool-of-tears-wide.webp"><div class="cap"><span class="k">Art · Brian Flora</span><span class="t">The Pool of Tears</span></div></div></div>
-  <div class="content">
+</section>
+<section class="panel card">
+  <div class="content wide">
     <p class="line rise">Her Royal Bodyguard carried her to the Pool of Tears &mdash;</p>
     <p class="line rise d1">the ancient gateway between Wonderland and our world.</p>
   </div>
 </section>
-
-<!-- A6 -->
-<section class="panel kenburns">
+<section class="panel img kenburns">
   <div class="art"><div class="ph" data-img="assets/img/06-act1-hatter-alyss-whirlpool.webp"><div class="cap"><span class="k">Art · Ben Templesmith</span><span class="t">Hatter &amp; Alyss in the Whirlpool</span></div></div></div>
+</section>
+<section class="panel card">
   <div class="content">
     <p class="line rise">The crossing saved her life.</p>
     <p class="line rise d1">It separated them forever.</p>
   </div>
 </section>
-
-<!-- A7 -->
-<section class="panel kenburns">
+<section class="panel img kenburns">
   <div class="art"><div class="ph" data-img="assets/img/07-act1-alyss-in-london.webp" data-img-wide="assets/img/07-act1-alyss-in-london-wide.webp"><div class="cap"><span class="k">Art · Toby Wilson</span><span class="t">Alyss in London</span></div></div></div>
+</section>
+<section class="panel card">
   <div class="content">
     <p class="line rise">A princess without a queendom.</p>
     <p class="line rise d1">A child without a family.</p>
     <p class="line rise d2">A witness to a history no one could believe.</p>
   </div>
 </section>
-
-<!-- A8 -->
-<section class="panel kenburns wide">
-  <div class="art"><div class="ph" data-img="assets/img/08-act1-carroll-reveal.webp" data-img-wide="assets/img/08-act1-carroll-reveal-wide.webp"><div class="cap"><span class="k">Art · Historical + Appelhans</span><span class="t">Lewis Carroll &amp; Alice Liddell (photos) · Haircut Alyss · Police Station</span></div></div></div>
-  <div class="content">
+<section class="panel img kenburns">
+  <div class="art"><div class="ph" data-img="assets/img/08-act1-carroll-reveal.webp" data-img-wide="assets/img/08-act1-carroll-reveal-wide.webp"><div class="cap"><span class="k">Art · Historical</span><span class="t">Lewis Carroll &amp; Alice Liddell</span></div></div></div>
+</section>
+<section class="panel card">
+  <div class="content wide">
     <p class="line rise">Alone in Victorian England, Alyss told her story to an Oxford mathematician named Charles Dodgson &mdash;</p>
     <p class="line rise d1">the man the world would come to know as <b>Lewis Carroll.</b></p>
-    <p class="line rise d2">He believed her grief. He believed her fear. He simply couldn't believe her world.</p>
+    <p class="line rise d2">He believed her grief. He believed her fear. He simply couldn&#39;t believe her world.</p>
     <p class="line rise d3">He gave the world a story&hellip; instead of its <span class="em-blue">history.</span></p>
   </div>
 </section>
-
-<!-- A9 — chapter break -->
-<section class="panel chapter wide">
-  <div class="art"><div class="ph" data-img="assets/img/09-act1-alice-vs-alyss.webp" data-img-wide="assets/img/09-act1-alice-vs-alyss-wide.webp"><div class="cap"><span class="k">Art · Comparison</span><span class="t">Tenniel's Alice &nbsp;vs&nbsp; Catia Chien's Alyss</span></div></div></div>
+<section class="panel img kenburns">
+  <div class="art"><div class="ph" data-img="assets/img/09-act1-alice-vs-alyss.webp" data-img-wide="assets/img/09-act1-alice-vs-alyss-wide.webp"><div class="cap"><span class="k">Art · Comparison</span><span class="t">Tenniel&#39;s Alice vs Catia Chien&#39;s Alyss</span></div></div></div>
+</section>
+<section class="panel card chapter">
   <div class="content">
     <p class="b rise">DISCOVER THE TRUTH</p>
     <small class="rise d1">Keep scrolling</small>
   </div>
 </section>
 
-<!-- ============================ ACT II — THE PEOPLE WHO SHAPED THE WAR ============================ -->
-
-<!-- Alyss -->
-<section class="panel char kenburns">
+<!-- ==================== ACT II - THE PEOPLE ==================== -->
+<section class="panel img kenburns">
   <div class="art"><div class="ph" data-img="assets/img/10-act2-alyss-warrior.webp" data-img-wide="assets/img/10-act2-alyss-warrior-wide.webp"><div class="cap"><span class="k">Art · Vincent Proce</span><span class="t">Warrior Alyss</span></div></div></div>
+</section>
+<section class="panel card char">
   <div class="content">
-    <p class="ey rise">Act II — The People Who Shaped the War</p>
+    <p class="ey rise">Act II &mdash; The People Who Shaped the War</p>
     <p class="name rise d1">ALYSS HEART</p>
     <p class="desc rise d2">She was raised to rule a civilization &mdash; and taught to believe it never existed.</p>
   </div>
 </section>
-
-<!-- Hatter -->
-<section class="panel char kenburns">
+<section class="panel img kenburns">
   <div class="art"><div class="ph" data-img="assets/img/11-act2-hatter-on-smoke.webp" data-img-wide="assets/img/11-act2-hatter-on-smoke-wide.webp"><div class="cap"><span class="k">Art · MK</span><span class="t">Hatter on Smoke</span></div></div></div>
+</section>
+<section class="panel card char">
   <div class="content">
     <p class="name rise">HATTER MADIGAN</p>
     <p class="desc rise d1">He crossed two worlds searching for someone who no longer remembered him.</p>
   </div>
 </section>
-
-<!-- Redd -->
-<section class="panel char kenburns">
+<section class="panel img kenburns">
   <div class="art"><div class="ph" data-img="assets/img/12-act2-redd.webp" data-img-wide="assets/img/12-act2-redd-wide.webp"><div class="cap"><span class="k">Art · Vance Kovacs</span><span class="t">Redd</span></div></div></div>
+</section>
+<section class="panel card char">
   <div class="content">
     <p class="name rise" style="color:var(--crimson-lit)">REDD HEART</p>
     <p class="desc rise d1">She believes truth belongs to those with the power to shape it.</p>
   </div>
 </section>
-
-<!-- The Cat -->
-<section class="panel char kenburns">
+<section class="panel img kenburns">
   <div class="art"><div class="ph" data-img="assets/img/13-act2-the-cat.webp" data-img-wide="assets/img/13-act2-the-cat-wide.webp"><div class="cap"><span class="k">Art · Vance Kovacs</span><span class="t">The Attack Cat</span></div></div></div>
+</section>
+<section class="panel card char">
   <div class="content">
     <p class="name rise">THE CAT</p>
     <p class="desc rise d1">He turned fear into a weapon &mdash; and became the nightmare no child ever forgets.</p>
   </div>
 </section>
-
-<!-- Silence -->
-<section class="panel silence">
+<section class="panel card silence">
   <div class="content">
     <p class="b rise">THEIR STORY CHANGED WONDERLAND.</p>
   </div>
 </section>
 
-<!-- ============================ ACT III — THE STORY THAT NEVER ENDED ============================ -->
-
-<!-- Book reveal -->
-<section class="panel book">
-  <div class="art"><div class="ph" style="background:radial-gradient(70% 60% at 50% 45%, rgba(143,215,255,.10), transparent 60%), linear-gradient(180deg,#0b0910,#080709)"></div></div>
+<!-- ==================== ACT III - THE STORY THAT NEVER ENDED ==================== -->
+<section class="panel card book">
   <div class="content" style="max-width:none">
     <div class="cover rise" data-img="assets/img/14-act3-lgw-cover.webp"><span class="k" style="font-family:var(--ui);font-size:9px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--glow);opacity:.6">Cover</span><span class="t" style="font-family:var(--editorial);font-style:italic;font-size:15px;color:var(--bone-dim);opacity:.7;margin-top:6px">The Looking Glass Wars</span></div>
-    <p class="headline rise d1">EVERYTHING BEGAN HERE.</p>
+  </div>
+</section>
+<section class="panel card">
+  <div class="content">
+    <p class="ask rise">EVERYTHING BEGAN HERE.</p>
   </div>
 </section>
 
-<!-- Signals + reviews -->
 <div class="stack-band">
-  <div class="band">
-    <div class="inner">
-      <div class="signals">
-        <div class="s rise"><div class="n"><em>New York Times</em> Bestseller</div></div>
-        <div class="s rise d1"><div class="n">Millions of Readers</div></div>
-        <div class="s rise d2"><div class="n">20th Anniversary</div></div>
-        <div class="s rise d3"><div class="n">Never Out of Print</div></div>
-      </div>
-      <div class="quotes" style="margin-top:40px">
-        <div class="q rise"><div class="w">&ldquo;Revolutionary&rdquo;</div><div class="src">The Independent</div></div>
-        <div class="q rise d1"><div class="w">&ldquo;Ingenious&rdquo;</div><div class="src">The Sunday Times</div></div>
-        <div class="q rise d2"><div class="w">&ldquo;Fantastic&rdquo;</div><div class="src">The Guardian</div></div>
-        <div class="q rise d3"><div class="w">&ldquo;Amazing Imagination!&rdquo;</div><div class="src">USA Today</div></div>
-      </div>
+  <!-- Authority: NYT Bestseller designed image + press acclaim -->
+  <div class="band"><div class="inner">
+    <span class="eyebrow rise">Critical acclaim</span>
+    <div class="tile rise d1" data-img="assets/img/26-act3-nyt-bestseller.webp" style="aspect-ratio:5/2;max-width:560px;margin:14px auto 36px"><div class="cap"><div class="k">Image</div><div class="t">New York Times Bestseller &mdash; designed graphic</div></div></div>
+    <div class="quotes">
+      <div class="q rise"><div class="w">&ldquo;Revolutionary&rdquo;</div><div class="src">The Independent</div></div>
+      <div class="q rise d1"><div class="w">&ldquo;Ingenious&rdquo;</div><div class="src">The Sunday Times</div></div>
+      <div class="q rise d2"><div class="w">&ldquo;Fantastic&rdquo;</div><div class="src">The Guardian</div></div>
+      <div class="q rise d3"><div class="w">&ldquo;Amazing Imagination!&rdquo;</div><div class="src">USA Today</div></div>
     </div>
-  </div>
+  </div></div>
 
-  <!-- Emotional montage -->
-  <div class="band" style="padding-top:0">
-    <div class="inner">
-      <span class="eyebrow rise">Some stories are read</span>
-      <h2 class="h rise d1">Others become part of people's lives.</h2>
-      <div class="montage">
-        <div class="tile video rise" data-video="assets/video/15-act3-card-soldiers.mp4"><div class="cap"><div class="k">Video</div><div class="t">Card Soldiers</div></div></div>
-        <div class="tile video rise" data-video="assets/video/16-act3-frank-sizzle.mp4"><div class="cap"><div class="k">Video</div><div class="t">Frank — Press Sizzle Reel</div></div></div>
-        <div class="tile rise" data-img="assets/img/17-act3-cosplay.webp"><div class="cap"><div class="k">Fans</div><div class="t">Cosplay</div></div></div>
-        <div class="tile rise d1" data-img="assets/img/18-act3-tattoos.webp"><div class="cap"><div class="k">Fans</div><div class="t">Tattoos</div></div></div>
-        <div class="tile rise d2" data-img="assets/img/19-act3-fan-engagement.webp"><div class="cap"><div class="k">Fans</div><div class="t">Fan engagement</div></div></div>
-        <div class="tile rise" data-img="assets/img/20-act3-fan-post-1.webp"><div class="cap"><div class="k">Social</div><div class="t">Fan posts</div></div></div>
-        <div class="tile rise d1" data-img="assets/img/21-act3-fan-post-2.webp"><div class="cap"><div class="k">Social</div><div class="t">Fan posts</div></div></div>
-        <div class="tile rise d2" data-img="assets/img/22-act3-fan-post-3.webp"><div class="cap"><div class="k">Social</div><div class="t">Fan posts</div></div></div>
-        <div class="tile rise" data-img="assets/img/23-act3-art-1.webp"><div class="cap"><div class="k">Art</div><div class="t">Fan art</div></div></div>
-        <div class="tile rise d1" data-img="assets/img/24-act3-art-2.webp"><div class="cap"><div class="k">Art</div><div class="t">Fan art</div></div></div>
-        <div class="tile rise d2" data-img="assets/img/25-act3-art-3.webp"><div class="cap"><div class="k">Art</div><div class="t">Fan art</div></div></div>
-      </div>
-      <div class="voices" style="margin-top:34px">
-        <span class="v rise">&ldquo;I named my daughter Alyss.&rdquo;</span>
-        <span class="v rise d1">&ldquo;I've waited twenty years.&rdquo;</span>
-        <span class="v rise d2">&ldquo;We want a movie.&rdquo;</span>
-        <span class="v rise d3">&ldquo;We want more.&rdquo;</span>
-      </div>
+  <!-- Gallery: Others become part of culture -->
+  <div class="band" style="padding-top:0"><div class="inner">
+    <span class="eyebrow rise">Some stories are read</span>
+    <h2 class="h rise d1">Others become part of culture.</h2>
+    <div class="montage">
+      <div class="tile rise" data-img="assets/img/17-act3-cosplay.webp"><div class="cap"><div class="k">Fans</div><div class="t">Cosplay</div></div></div>
+      <div class="tile rise d1" data-img="assets/img/18-act3-tattoos.webp"><div class="cap"><div class="k">Fans</div><div class="t">Tattoos</div></div></div>
+      <div class="tile rise d2" data-img="assets/img/19-act3-fan-engagement.webp"><div class="cap"><div class="k">Fans</div><div class="t">Frank &amp; fans</div></div></div>
+      <div class="tile rise" data-img="assets/img/23-act3-art-1.webp"><div class="cap"><div class="k">Art</div><div class="t">Fan art</div></div></div>
+      <div class="tile rise d1" data-img="assets/img/24-act3-art-2.webp"><div class="cap"><div class="k">Art</div><div class="t">Fan art</div></div></div>
+      <div class="tile rise d2" data-img="assets/img/25-act3-art-3.webp"><div class="cap"><div class="k">Art</div><div class="t">Fan art</div></div></div>
     </div>
-  </div>
+  </div></div>
+
+  <!-- On Social -->
+  <div class="band" style="padding-top:0"><div class="inner">
+    <span class="eyebrow rise">On Social</span>
+    <div class="social">
+      <div class="socialquote rise">&ldquo;Seriously need this to be made into a movie or series.&rdquo;</div>
+      <div class="socialquote rise d1">&ldquo;I named my daughter Alyss. I spelled it that way because of the Princess Alyss book!&rdquo;</div>
+      <div class="socialquote rise">&ldquo;His version of Wonderland is just so fascinating, and his Hatter is just the ultimate badass.&rdquo;</div>
+      <div class="socialquote rise d1">&ldquo;OMG I love the book! Is there a movie out yet?&rdquo;</div>
+      <div class="socialquote rise">&ldquo;I&#39;m still waiting for a LGW movie. That&#39;s what we need.&rdquo;</div>
+      <div class="socialquote rise d1">&ldquo;#LookingGlassWars &mdash; it would be awesome to see it turned into a series on either Netflix or HBO.&rdquo;</div>
+    </div>
+  </div></div>
+
+  <!-- TV Appearances -->
+  <div class="band" style="padding-top:0"><div class="inner">
+    <span class="eyebrow rise">TV Appearances</span>
+    <div class="tile video rise d1" data-video="assets/video/16-act3-frank-sizzle.mp4" style="max-width:860px;margin:6px auto 0;aspect-ratio:16/9;grid-column:auto"><div class="cap"><div class="k">Video</div><div class="t">Frank &mdash; Press Sizzle Reel</div></div></div>
+  </div></div>
 
   <!-- Closing + first choices -->
-  <div class="band" style="padding-top:0">
-    <div class="inner closing">
-      <p class="l rise">WHAT IF WONDERLAND WAS REAL ALL ALONG?</p>
-      <p class="l rise d1" style="margin-top:1em">Perhaps it always has been. Not because everyone could see it &mdash;</p>
-      <p class="l strong rise d2">because people carried it with them. In their imagination. In their art. In their lives.</p>
-      <p class="final rise d3">IMAGINATION CHANGES REALITY.</p>
-
-      <div class="choices rise d3">
-        <a class="btn" href="#" aria-label="Read the Story">Read the Story</a>
-        <a class="btn ghost" href="#" aria-label="Watch the Trailer">Watch the Trailer</a>
-      </div>
-      <div class="partners rise d4">
-        <a href="partners.html">For Partners &amp; Producers &rarr;</a>
-      </div>
+  <div class="band" style="padding-top:0"><div class="inner closing">
+    <p class="l rise">WHAT IF WONDERLAND WAS REAL ALL ALONG?</p>
+    <p class="l rise d1" style="margin-top:1em">Perhaps it always has been. Not because everyone could see it &mdash;</p>
+    <p class="l strong rise d2">because people carried it with them. In their imagination. In their art. In their lives.</p>
+    <p class="final rise d3">IMAGINATION CHANGES REALITY.</p>
+    <div class="choices rise d3">
+      <a class="btn" href="#" aria-label="Read the Story">Read the Story</a>
+      <a class="btn ghost" href="#" aria-label="Watch the Trailer">Watch the Trailer</a>
     </div>
-  </div>
+    <div class="partners rise d4"><a href="partners.html">For Partners &amp; Producers &rarr;</a></div>
+  </div></div>
 </div>
 
 <footer>
